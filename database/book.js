@@ -2,19 +2,19 @@ const { Schema } = require('mongoose');
 
 const Book = new Schema({
   id: String,
-  slug: String,
-  title: String,
-  subtitle: String,
-  isbn: String,
-  author: String,
-  publisher: String,
-  date: Date,
-  language: String,
-  edition: Number,
-  pages: Number,
-  category: String,
-  topics: [String],
-  description: String,
+  slug: { type: String, required: true },
+  title: { type: String, required: true },
+  subtitle: { type: String },
+  isbn: { type: String, minLength: 10 },
+  author: { type: String },
+  publisher: { type: String },
+  date: { type: Date, enum: ['en', 'ru'] },
+  language: { type: String },
+  edition: { type: Number, min: 1, default: 1 },
+  pages: { type: Number, min: 0 },
+  category: { type: String },
+  topics: { type: [String] },
+  description: { type: String },
 });
 
 module.exports = Book;
@@ -30,7 +30,7 @@ const a =  {
     "date": "July 25, 2014",
     "language": "English",
     "edition": 1,
-    "pages": 332,
+    "pages": 54,
     "category": "web development",
     "topics": ["nodejs", "mongodb", "mongoose"],
     "description": "469 Bay Avenue, Bethany"
