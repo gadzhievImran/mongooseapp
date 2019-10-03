@@ -1,12 +1,18 @@
 const { Schema } = require('mongoose');
 
+const Author = new Schema({
+  firstname: String,
+  lastname: String
+});
+
 const Book = new Schema({
   id: String,
   slug: { type: String, required: true },
   title: { type: String, required: true },
   subtitle: { type: String },
   isbn: { type: String, minLength: 10 },
-  author: { type: String },
+  author: Author,
+  // author: { type: String },
   publisher: { type: String },
   date: { type: Date, enum: ['en', 'ru'] },
   language: { type: String },

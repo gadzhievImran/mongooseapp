@@ -8,7 +8,10 @@ Book.create({
   "title": "Web development with node js",
   "subtitle": "leveraging the javascript stack",
   "isbn": "23242332123",
-  "author": "Euthan Brown",
+  "author": {
+    "firstName": "Euthan",
+    "lastName": "Brown"
+  },
   "publisher": 22,
   "date": "July 25, 2014",
   "language": "en",
